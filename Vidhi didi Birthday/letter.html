@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Letter for Vidhi Didi</title>
+
+<style>
+body {
+  margin: 0;
+  background: url("img2.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: Georgia, serif;
+  color: white;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.card {
+  position: relative;
+  max-width: 720px;
+  margin: 80px auto;
+  padding: 40px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+}
+
+.open-btn {
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.letter {
+  display: none;
+  margin-top: 30px;
+  line-height: 1.9;
+}
+
+.slideshow {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.slideshow img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  transition: opacity 1s ease;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="card">
+
+  <div class="open-btn" onclick="openLetter()">
+    Click to open
+  </div>
+
+  <div class="letter" id="letter">
+
+    <p>Dear Vidhi Didi,</p>
+
+    <p>
+      When we first met, I didn’t really understand you.
+      You felt quiet, a little self-centered, egoistic at times,
+      and mostly lost in your own world.
+      That was my first impression, and honestly,
+      I never thought it would change the way it did.
+    </p>
+
+    <p>
+      But time has a way of revealing people slowly.
+      Through conversations, shared moments,
+      and even long silences,
+      we began to understand each other better.
+      Without realizing it, our bond grew deeper and more emotional.
+    </p>
+
+    <p>
+      There came a moment in my life
+      when I needed guidance more than anything.
+      I asked you for advice about something
+      only the two of us knew.
+      I still remember how carefully you listened,
+      how calmly you understood,
+      and how thoughtfully you guided me.
+    </p>
+
+    <p>
+      In that moment, you didn’t feel like just someone giving advice.
+      You felt like a real elder sister —
+      someone who genuinely cared,
+      someone who wanted the best for me.
+    </p>
+
+    <p>
+      There are things I can’t share with my real sister,
+      things I keep locked inside.
+      But with you, I could open up without fear,
+      without hesitation,
+      and without being judged.
+    </p>
+
+    <p>
+      That is what makes you so special to me.
+      You are not just a part of my life,
+      you are the elder sister I found along the way.
+    </p>
+
+    <p style="text-align:right; margin-top:40px;">
+      — Always grateful
+    </p>
+
+    <hr style="margin:50px 0; opacity:0.3;">
+
+    <div class="slideshow">
+      <img id="slide-img" src="photos/pic1.jpg" alt="Memories">
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function openLetter() {
+  document.querySelector(".open-btn").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+  startSlideshow();
+}
+
+let slideIndex = 0;
+const slides = [
+  "photos/pic1.jpeg",
+  "photos/pic2.jpeg",
+  "photos/pic3.jpeg",
+  "photos/pic4.jpeg",
+  "photos/pic5.jpeg",
+  "photos/pic6.jpeg",
+  "photos/pic7.jpeg",
+  "photos/pic8.jpeg"
+];
+
+function startSlideshow() {
+  const img = document.getElementById("slide-img");
+
+  setInterval(() => {
+    img.style.opacity = 0;
+
+    setTimeout(() => {
+      slideIndex = (slideIndex + 1) % slides.length;
+      img.src = slides[slideIndex];
+      img.style.opacity = 1;
+    }, 600);
+  }, 4000);
+}
+</script>
+
+<audio id="bg-music" autoplay loop>
+  <source src="aud.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.getElementById("bg-music").volume = 0.4;
+</script>
+
+</body>
+</html>
